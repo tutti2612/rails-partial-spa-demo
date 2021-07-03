@@ -1,0 +1,24 @@
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Index from "../pages/index.vue";
+import New from "../pages/new.vue";
+import Show from "../pages/show.vue";
+import Edit from "../pages/edit.vue";
+import NotFound from "../pages/notFound.vue";
+
+Vue.use(VueRouter);
+
+const routes = [
+  { path: "/books", name: "index", component: Index },
+  { path: "/books/new", name: "new", component: New },
+  { path: "/books/:id(\\d+)", name: "show", component: Show },
+  { path: "/books/:id(\\d+)/edit", name: "edit", component: Edit },
+  { path: "*", name: "notFound", component: NotFound }
+];
+
+const router = new VueRouter({
+  mode: "history",
+  routes
+});
+
+export default router;
