@@ -11,10 +11,22 @@ module Api
         render json: @book
       end
 
+      def update
+        if @book.update(book_params)
+          render json: @book
+        else
+          render json: @book.errors
+        end
+      end
+
       private
 
       def set_book
         @book = Book.find(params[:id])
+      end
+
+      def book_params
+        params.require(:book).permit(:title)
       end
     end
   end

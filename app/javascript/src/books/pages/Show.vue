@@ -21,7 +21,9 @@ export default {
   data() {
     return {
       notice: "",
-      book: {}
+      book: {
+        id: 0
+      }
     };
   },
   created() {
