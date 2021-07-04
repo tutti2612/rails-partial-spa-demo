@@ -1,10 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Index from "../pages/index.vue";
-import New from "../pages/new.vue";
-import Show from "../pages/show.vue";
-import Edit from "../pages/edit.vue";
-import NotFound from "../pages/notFound.vue";
+import Index from "../pages/Index.vue";
+import New from "../pages/New.vue";
+import Show from "../pages/Show.vue";
+import Edit from "../pages/Edit.vue";
+import NotFound from "../pages/NotFound.vue";
 
 Vue.use(VueRouter);
 

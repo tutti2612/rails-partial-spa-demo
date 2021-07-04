@@ -1,5 +1,5 @@
 import Vue from "vue";
-import App from "../../src/books/app.vue";
+import App from "../../src/books/App.vue";
 import router from "../../src/books/router";
 
 document.addEventListener("DOMContentLoaded", () => {
