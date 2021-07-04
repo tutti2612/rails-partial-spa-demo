@@ -32,10 +32,9 @@ export default {
       return document.querySelector('meta[name="csrf-token"]').content;
     },
     async getBook() {
+      const url = `/api/v1/books/${this.$route.params.id}`;
       try {
-        const response = await axios.get(
-          `/api/v1/books/${this.$route.params.id}`
-        );
+        const response = await axios.get(url);
         console.log(response);
         this.book = response.data;
       } catch (error) {
@@ -43,12 +42,11 @@ export default {
       }
     },
     async updateBook() {
+      const url = `/api/v1/books/${this.$route.params.id}`;
+      const data = { book: { title: this.book.title } };
+      const config = { headers: { "X-CSRF-Token": this.csrfToken() } };
       try {
-        const response = await axios.patch(
-          `/api/v1/books/${this.$route.params.id}`,
-          { book: { title: this.book.title } },
-          { headers: { "X-CSRF-Token": this.csrfToken() } }
-        );
+        const response = await axios.patch(url, data, config);
         console.log(response);
         this.$router.push({ name: "show", params: { id: this.book.id } });
       } catch (error) {
